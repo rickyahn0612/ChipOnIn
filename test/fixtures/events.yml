@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  time: 1
+  date: MyString
+  eventable_id: 1
+  eventable_type: MyString
+
+two:
+  name: MyString
+  time: 1
+  date: MyString
+  eventable_id: 1
+  eventable_type: MyString

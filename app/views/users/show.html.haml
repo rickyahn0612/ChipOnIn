@@ -1,0 +1,21 @@
+.container
+	.row
+	.span3
+		= image_tag @user.profile_pic.url, style: 'width:80px; float: left; margin-right: 10px;'
+		%h4
+			= @user.name
+			%br
+			= link_to 'Edit Profile', edit_user_path(@user), class: 'btn-small btn-warning'
+		%br
+		%h4
+			Create Event
+		= render 'events/form'
+	.span8
+		- @event.each do |event|
+			%h3
+				= event.name
+			= image_tag event.photo, style: 'width: 300px;'
+			%br
+			= link_to 'Delete', user_event_path(event.eventable, event), class: 'btn-small btn-danger', method: :delete
+			= link_to 'Edit', edit_user_event_path(event.eventable, event), class: 'btn-small btn-warning'
+

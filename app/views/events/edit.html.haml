@@ -1,0 +1,8 @@
+%h1 Edit
+= form_for [@eventable, @event] do |f|
+	= f.label :name
+	= f.text_field :name
+	= f.label :photo
+	= f.file_field :photo
+	= f.submit
+	
