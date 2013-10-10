@@ -1,4 +1,6 @@
 = form_for [@itemable, @eventable, @item] do |f|
 	= f.label :name
 	= f.text_field :name
+	= f.label :quantity_needed
+	= f.text_field :quantity_needed
 	= f.submit

@@ -8,10 +8,11 @@ class EventsController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:user_id])
     @event = Event.find(params[:id])
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to current_user, notice: 'Item was successfully updated.' }
+        format.html { redirect_to user_event_path(@user, @event), notice: 'Item was successfully updated.' }
         format.json { head :no_content }
       end
     end	
@@ -23,7 +24,7 @@ class EventsController < ApplicationController
     @event = @eventable.events.create!(event_params)
     if @event.save
       respond_to do |format|
-        format.html { redirect_to current_user}
+        format.html { redirect_to user_event_path(@user, @event)}
         format.js
       end  
     else
@@ -32,6 +33,8 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = Event.find(params[:id])
+    @item = @event.items
   end
 
   def edit
@@ -42,7 +45,7 @@ class EventsController < ApplicationController
   	@event = Event.find(params[:id])
   	@event.destroy 
 	  respond_to do |format|
-	  format.html { redirect_to current_user }
+	  format.html { redirect_to new_user_event_path }
 	  format.js
     end
   end

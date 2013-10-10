@@ -1,17 +1,17 @@
-- @events.each do |event|
-	.span8
-		%h3= event.name
-		.span3{style: 'margin: 0;'}
-			= image_tag event.photo, style: 'width: 100%;'
-			%br
-			= link_to 'Delete', user_event_path(event.eventable, event), class: 'btn-small btn-danger', method: :delete
-			= link_to 'Edit', edit_user_event_path(event.eventable, event), class: 'btn-small btn-warning'
-		.span2
-			/ %b
-			/ 	Time:
-			/ 	= event.time.to_s
-			/ %br
-			/ %b
-			/ 	Date:
-			/ 	= event.date
-		= render 'items/items'
+.span8{style: 'margin: 0;'}
+	%h3
+		= @event.name
+	.span5{style: 'margin: 0;'}
+		.event-photo{style: 'width: 100%;'}
+			= image_tag @event.photo, style: 'width: 100%;'
+		%br
+		= link_to 'Delete', user_event_path(@event.eventable, @event), class: 'btn-small btn-danger', method: :delete
+		= link_to 'Edit', edit_user_event_path(@event.eventable, @event), class: 'btn-small btn-warning'
+	.span2
+		/ %b
+		/ 	Time:
+		/ 	= @event.time.to_s
+		/ %br
+		/ %b
+		/ 	Date:
+		/ 	= @event.date
