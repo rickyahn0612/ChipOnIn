@@ -10,7 +10,8 @@
 			.created-event
 				= render 'event'
 		.span3
-			.created-event
+			.created-volunteers
+				%br
 				%h4 Volunteers
 				- @item.each do |item|
 					- item.volunteers.each do |volunteer|
@@ -20,6 +21,11 @@
 								said he would bring 
 								= volunteer.quantity_given.to_i
 								= volunteer.volunteerable.name
+								%br
+								%span{style: 'font-size: 11px;'}
+									- from_time = volunteer.created_at
+									= time_ago_in_words(from_time)
+									ago
 							%hr
 	.row
 		.span5
