@@ -2,6 +2,11 @@ body{
 	margin-top: 10px;
 }
 
+ul{
+	list-style: none;
+	margin: 0;
+}
+
 input{
 	width: 100% !important;
 	height: 30px !important;
@@ -17,4 +22,10 @@ input{
 	padding: 10px;
 	background: #FAFAFA;
 	border-radius: 10px;
+}
+
+#item-list li{
+	display: inline;
+	margin-right: 100px;
+	font-weight: bold;
 }

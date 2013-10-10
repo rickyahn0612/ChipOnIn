@@ -6,27 +6,31 @@
 		/ 	= link_to 'Edit Profile', edit_user_path(@user)
 		/ 	%br
 
-		.span9
+		.span8
 			.created-event
 				= render 'event'
-		.row
-			.span3
-			.span8
-				%h4 Items
-				%table.table{style: 'margin: 0;'}
-					%thead
-						%th Name
-						%th Quantity Have
-						%th Quantity Needed
-						%th
-						%th
-					%tbody.items-container
-						- @item.each do |item|
-							%tr
-								%td= item.name
-								%td= item.quantity_have.to_i
-								%td= item.quantity_needed.to_i
+		.span2
+			.created-event
+				%h4 Volunteers
+	.row
+		.span5
+		.span8
+			%br
+			%h4 Items
+			%table.table{style: 'margin: 0;'}
+				%thead
+					%th Name
+					%th Quantity Have
+					%th Quantity Needed
+					%th
+					%th
+				%tbody.items-container
+					- @item.each do |item|
+						%tr
+							%td= item.name
+							%td= item.quantity_have.to_i
+							%td= item.quantity_needed.to_i
 
-								%td= link_to 'edit', edit_user_event_item_path(@eventable, @event, item), class: 'btn-small btn-warning add-items'
-								%td= link_to 'delete', user_event_item_path(@eventable, @event, item), class: 'btn-small btn-danger add-items', method: :delete
+							%td= link_to 'edit', edit_user_event_item_path(@eventable, @event, item), class: 'btn-small btn-warning add-items'
+							%td= link_to 'delete', user_event_item_path(@eventable, @event, item), class: 'btn-small btn-danger add-items', method: :delete
 			= link_to "Add Items", new_user_event_item_path(@eventable, @event, @items), class: 'btn-small btn-success add-items'
