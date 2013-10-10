@@ -1,10 +1,10 @@
 class UsersController < ApplicationController 
 	def show
 	  @user = User.find(params[:id])
-    @eventable = @user
     @event = Event.new
     @events = @user.events
     @item = @user.items
+    @itemable = Item.new
 	end
 
 	def edit

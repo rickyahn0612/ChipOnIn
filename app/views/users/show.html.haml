@@ -1,13 +1,16 @@
 .container
 	.row
 		.span3
-			= image_tag @user.profile_pic.url, style: 'width:80px; float: left; margin-right: 10px;'
-			%h4= @user.name
-			= link_to 'Edit Profile', edit_user_path(@user), class: 'btn-small btn-warning'
+			= image_tag @user.profile_pic.url, style: 'width:15%; float: left; margin-right: 10px;'
+			%h5= @user.name
+			= link_to 'Edit Profile', edit_user_path(@user)
+			%brs
 			%br
-			%br
-			%h4 Create Event
-			= render 'events/form'
-		.created-event
-			= render 'events/event'
+			- if @events.present?
+			- else
+				.create-event
+					= render 'events/form'
+		.span9
+			.created-event
+				= render 'events/event'
 

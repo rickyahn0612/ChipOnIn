@@ -13,7 +13,10 @@ class ItemsController < ApplicationController
     @itemable = Event.find(params[:event_id])
     @item = @itemable.items.new(item_params)
     if @item.save
-      redirect_to current_user
+      respond_to do |format|
+        format.html { redirect_to current_user }
+        format.js
+      end
     else
       render :new
     end

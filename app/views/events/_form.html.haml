@@ -1,9 +1,11 @@
-= form_for [@eventable, @event], :html => {:multipart => true}, remote: true do |f|
+= form_for [@user, @event], :html => {:multipart => true}, remote: true do |f|
+	%h3 Create Event
 	= f.label :name
 	= f.text_field :name
 	= f.label :time
 	= f.text_field :time
 	= f.label :date
 	= f.text_field :date
-	= f.submit 'Create Event', class: 'btn btn-primary'
+	%br
+	= f.submit 'Create Event', class: 'btn-large btn-primary create-event'
 	
