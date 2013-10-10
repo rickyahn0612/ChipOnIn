@@ -1,45 +1,13 @@
 .container
 	.row
-	.span3
-		= image_tag @user.profile_pic.url, style: 'width:80px; float: left; margin-right: 10px;'
-		%h4
-			= @user.name
-			%br
+		.span3
+			= image_tag @user.profile_pic.url, style: 'width:80px; float: left; margin-right: 10px;'
+			%h4= @user.name
 			= link_to 'Edit Profile', edit_user_path(@user), class: 'btn-small btn-warning'
-		%br
-		%h4
-			Create Event
-		= render 'events/form'
-	- @events.each do |event|
-		.span8
-			%h3
-				= event.name
-			.span3{style: 'margin: 0;'}
-				= image_tag event.photo, style: 'width: 300px;'
-				%br
-				= link_to 'Delete', user_event_path(event.eventable, event), class: 'btn-small btn-danger', method: :delete
-				= link_to 'Edit', edit_user_event_path(event.eventable, event), class: 'btn-small btn-warning'
-			.span2
-				%b
-					Time:
-					= event.time.to_s
-				%br
-				%b
-					Date:
-					= event.date
-			.row
-				.span3
-				.span8
-					%table.table
-						%thead
-							%th Name
-							%th Quantity Have
-							%th Quantity Needed
-							%th
-							%th
-						%tbody
-							- event.items.each do |item|
-								%tr
-									%td= item.name
-									%td= item.quantity_have.to_i
-									%td= item.quantity_needed.to_i
+			%br
+			%br
+			%h4 Create Event
+			= render 'events/form'
+		.created-event
+			= render 'events/event'
+

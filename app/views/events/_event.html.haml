@@ -1,0 +1,34 @@
+- @events.each do |event|
+	.span8
+		%h3= event.name
+		.span3{style: 'margin: 0;'}
+			= image_tag event.photo, style: 'width: 300px;'
+			%br
+			= link_to 'Delete', user_event_path(event.eventable, event), class: 'btn-small btn-danger', method: :delete
+			= link_to 'Edit', edit_user_event_path(event.eventable, event), class: 'btn-small btn-warning'
+		.span2
+			/ %b
+			/ 	Time:
+			/ 	= event.time.to_s
+			/ %br
+			/ %b
+			/ 	Date:
+			/ 	= event.date
+		.span2
+			%h3 Volunteers
+		.row
+			.span3
+			.span8
+				%table.table
+					%thead
+						%th Name
+						%th Quantity Have
+						%th Quantity Needed
+						%th
+						%th
+					%tbody
+						- event.items.each do |item|
+							%tr
+								%td= item.name
+								%td= item.quantity_have.to_i
+								%td= item.quantity_needed.to_i

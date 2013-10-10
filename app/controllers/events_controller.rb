@@ -18,10 +18,12 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = @eventable.events.new(event_params)
+    @user = User.find(params[:user_id])
+    @events = @user.events
+    @event = @eventable.events.create!(event_params)
     if @event.save
       respond_to do |format|
-        format.html { redirect_to redirect_to current_user}
+        format.html { redirect_to current_user}
         format.js
       end  
     else
