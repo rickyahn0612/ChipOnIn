@@ -1,7 +1,10 @@
 class EventsController < ApplicationController
   before_filter :load_eventable
   def new
+    @user = User.find(params[:user_id])
   	@event = @eventable.events.new
+    @events = @user.events
+    @items = @user.items
   end
 
   def update
@@ -17,7 +20,10 @@ class EventsController < ApplicationController
   def create
     @event = @eventable.events.new(event_params)
     if @event.save
-      redirect_to current_user
+      respond_to do |format|
+        format.html { redirect_to redirect_to current_user}
+        format.js
+      end  
     else
       render :new
     end

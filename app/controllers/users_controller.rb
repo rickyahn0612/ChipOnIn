@@ -2,8 +2,9 @@ class UsersController < ApplicationController
 	def show
 	  @user = User.find(params[:id])
     @eventable = @user
-    @events = Event.new
-    @event = @user.events
+    @event = Event.new
+    @events = @user.events
+    @item = @user.items
 	end
 
 	def edit

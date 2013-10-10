@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  quantity_have: 1
+  quantity_needed: 1
+  itemable_id: 1
+  itemable_type: MyString
+
+two:
+  name: MyString
+  quantity_have: 1
+  quantity_needed: 1
+  itemable_id: 1
+  itemable_type: MyString

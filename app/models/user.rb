@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_attached_file :profile_pic
-  has_many :events, as: :eventable
+  has_attached_file :profile_pic, dependent: :destroy
+  has_many :events, as: :eventable, dependent: :destroy
+  has_many :items, as: :itemable, dependent: :destroy
 end
