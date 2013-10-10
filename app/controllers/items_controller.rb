@@ -5,8 +5,8 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @eventable = Event.find(params[:event_id])
   	@item = @itemable.items.new
-  	@eventable = Event.find(params[:event_id])
   end
 
   def create
