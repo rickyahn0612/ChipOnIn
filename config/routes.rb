@@ -1,8 +1,14 @@
 EventerApp::Application.routes.draw do
+  get "volunteers/new"
+  get "volunteers/index"
+  get "volunteers/edit"
+  get "volunteers/show"
   devise_for :users 
   resources :users do 
     resources :events do 
-      resources :items
+      resources :items do 
+        resources :volunteers
+      end
     end
   end
 

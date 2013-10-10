@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   has_attached_file :profile_pic, dependent: :destroy
   has_many :events, as: :eventable, dependent: :destroy
   has_many :items, as: :itemable, dependent: :destroy
+  has_many :volunteers, as: :volunteerable, :dependent => :destroy
 end

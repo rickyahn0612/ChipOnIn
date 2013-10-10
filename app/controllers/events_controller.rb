@@ -34,7 +34,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @item = @event.items
+    @item = @event.items  
+    @volunteer = @event.volunteers
   end
 
   def edit

@@ -3,6 +3,5 @@ class Event < ActiveRecord::Base
   has_attached_file :photo, :dependent => :destroy
 
   has_many :items, as: :itemable, :dependent => :destroy
-
-  
+  has_many :volunteers, as: :volunteerable, :dependent => :destroy
 end
