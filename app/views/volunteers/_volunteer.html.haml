@@ -1,0 +1,28 @@
+%br
+%h4 Volunteers
+- @items.each do |item|
+	- if item.volunteers.present?
+		%strong
+			= item.name
+		- item.volunteers.each do |volunteer|
+			%ul
+				%li 
+					= image_tag 'placeholder_noImage_bw.png', style: 'width: 50px; float: left; margin-right: 10px; margin-top: 4px;'
+					= volunteer.name
+					is bringing
+					= volunteer.quantity_given
+					= item.name
+					%br
+					%span{style: 'font-size: 10px;'}
+						- from_time = volunteer.created_at
+						= time_ago_in_words(from_time)
+						ago
+				%br			
+		%hr
+	- else
+		%strong
+			= item.name
+		%br
+		We need Volunteers for this
+		%br
+		%hr

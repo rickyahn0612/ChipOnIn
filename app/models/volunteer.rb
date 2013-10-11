@@ -18,6 +18,10 @@ class Volunteer < ActiveRecord::Base
     item_quantity_given + item_quantity_have.to_i  
   end
 
+  def subtract_em_down
+    item_quantity_needed.to_i - item_quantity_given
+  end
+
   def make_it_happen
   	a = self.volunteerable
     if item_quantity_have.to_i != item_quantity_needed.to_i

@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @event = Event.find(params[:id])
-    @item = @event.items 
+    @items = @event.items 
     @volunteer = @event.volunteers
     @volunteers = @event.volunteers.new
   end
