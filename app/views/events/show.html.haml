@@ -6,7 +6,7 @@
 		/ 	= link_to 'Edit Profile', edit_user_path(@user)
 		/ 	%br
 
-		.span6
+		.span8
 			.created-event
 				= render 'event'
 				= link_to "Add Items", new_user_event_item_path(@eventable, @event, @items), class: 'btn-small btn-success add-items'
