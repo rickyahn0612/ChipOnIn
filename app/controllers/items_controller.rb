@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @itemable = Event.find(params[:event_id])
+    @items = @itemable.items(:created_at).order("created_at desc")
     @item = @itemable.items.new(item_params)
     if @item.save
       respond_to do |format|

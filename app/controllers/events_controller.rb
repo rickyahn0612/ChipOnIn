@@ -4,9 +4,7 @@ class EventsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @event = Event.find(params[:id])
-    @items = @event.items 
-    @volunteer = @event.volunteers
-    @volunteers = @event.volunteers.new
+    @items = @event.items(:created_at).order("created_at desc")
   end
 
   def new

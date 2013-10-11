@@ -1,0 +1,4 @@
+$('.add-item-form-container').fadeOut()
+$overlay.remove();
+$('.created-volunteers').html('<%= j render("volunteers/volunteer") %>').hide().fadeIn()
+$('.created-items').html('<%= j render("items/item") %>').hide().fadeIn()

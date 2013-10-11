@@ -1,0 +1,24 @@
+%br
+%h4 Items
+%table.table{style: 'margin: 0;'}
+	%thead
+		%th Item Name
+		%th Quantity Given
+		%th Quantity Needed
+	%tbody.items-container
+		- @items.each do |item|
+			%tr
+				%td
+					%strong
+						= item.name
+				%td= item.quantity_have.to_i
+				%td= item.quantity_needed.to_i
+
+				%td= link_to 'edit', edit_user_event_item_path(@eventable, @event, item), class: 'btn-small btn-warning add-items'
+				%td= link_to 'delete', user_event_item_path(@eventable, @event, item), class: 'btn-small btn-danger add-items', method: :delete
+				- if item.quantity_needed.to_i == item.quantity_have.to_i
+					%td{style: 'color: green; font-weight: bold;'} Complete!
+				- else
+					%td= link_to 'Volunteer', new_user_event_item_volunteer_path(@eventable, @event, item), class: 'btn-small btn-info add-items create-volunteer', remote: true
+			%tr
+				%td.item-create-form{id:"item-#{item.id}", style: 'border-top: none;'}

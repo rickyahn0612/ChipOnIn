@@ -10,7 +10,7 @@ class VolunteersController < ApplicationController
   	@user = User.find(params[:user_id])
   	@event = Event.find(params[:event_id])
   	@item = Item.find(params[:item_id])
-    @items = @event.items
+    @items = @event.items.order("created_at desc")
     @volunteer = @item.volunteers.create!(volunteer_params)
     if @volunteer.save
       respond_to do |format|

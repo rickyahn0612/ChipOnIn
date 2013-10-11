@@ -29,3 +29,27 @@ input{
 	margin-right: 100px;
 	font-weight: bold;
 }
+
+.item-add-popup{
+	border: solid #D4D4D4 1px;
+	background: #FAFAFA;
+	padding: 10px 25px 10px 10px;
+  position: absolute;
+  height: 200px;
+  width: 400px;
+  margin: -100px 0 0 -200px;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+}
+
+.overlay{
+	background: white;
+	opacity: .50;
+  position: fixed;
+  z-index: 400;
+  top: 0; 
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
