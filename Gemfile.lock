@@ -88,6 +88,9 @@ GEM
     erubis (2.7.0)
     execjs (2.0.2)
     fssm (0.2.10)
+    gon (4.1.1)
+      actionpack (>= 2.3.0)
+      json
     haml (4.0.3)
       tilt
     haml-rails (0.4)
@@ -193,6 +196,7 @@ DEPENDENCIES
   compass-rails (~> 2.0.alpha.0)
   debugger
   devise
+  gon
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails

@@ -6,48 +6,76 @@
 		/ 	= link_to 'Edit Profile', edit_user_path(@user)
 		/ 	%br
 
-		.span8
+		.span6
 			.created-event
 				= render 'event'
-		.span3
-			.created-volunteers
-				%br
-				%h4 Volunteers
-				- @item.each do |item|
-					- item.volunteers.each do |volunteer|
-						%ul
-							%li
-								= volunteer.name
-								said he would bring 
-								= volunteer.quantity_given.to_i
-								= volunteer.volunteerable.name
-								%br
-								%span{style: 'font-size: 11px;'}
-									- from_time = volunteer.created_at
-									= time_ago_in_words(from_time)
-									ago
-							%hr
-	.row
-		.span5
-		.span8
+				= link_to "Add Items", new_user_event_item_path(@eventable, @event, @items), class: 'btn-small btn-success add-items'
 			%br
 			%h4 Items
 			%table.table{style: 'margin: 0;'}
 				%thead
-					%th Name
-					%th Quantity Have
+					%th Item Name
+					%th Quantity Given
 					%th Quantity Needed
-					%th
-					%th
-					%th
 				%tbody.items-container
 					- @item.each do |item|
 						%tr
-							%td= item.name
+							%td
+								%strong
+									= item.name
 							%td= item.quantity_have.to_i
 							%td= item.quantity_needed.to_i
 
 							%td= link_to 'edit', edit_user_event_item_path(@eventable, @event, item), class: 'btn-small btn-warning add-items'
 							%td= link_to 'delete', user_event_item_path(@eventable, @event, item), class: 'btn-small btn-danger add-items', method: :delete
-							%td= link_to 'Volunteers', new_user_event_item_volunteer_path(@eventable, @event, item), class: 'btn-small btn-info add-items'
-			= link_to "Add Items", new_user_event_item_path(@eventable, @event, @items), class: 'btn-small btn-success add-items'
+							- if item.quantity_needed.to_i == item.quantity_have.to_i
+								%td{style: 'color: green; font-weight: bold;'} Complete!
+							- else
+								%td= link_to 'Volunteer', new_user_event_item_volunteer_path(@eventable, @event, item), class: 'btn-small btn-info add-items create-volunteer', remote: true
+						%tr
+							%td.item-create-form{id:"item-#{item.id}", style: 'border-top: none;'}
+						/ 	- item.volunteers.each do |volunteer|
+						/ 		%tr
+						/ 			%td{style: 'border-top: none;'}
+						/ 				= volunteer.name
+						/ 				is bringing
+						/ 				= volunteer.quantity_given
+						/ 				= volunteer.volunteerable.name
+						/ 				%span{style: 'font-size: 10px;'}
+						/ 					- from_time = volunteer.created_at
+						/ 					= time_ago_in_words(from_time)
+						/ 					ago
+
+		.span4
+			.created-volunteers
+				%br
+				%h4 Volunteers
+				- @item.each do |item|
+					- if item.volunteers.present?
+						%strong
+							= item.name
+						- item.volunteers.each do |volunteer|
+							%ul
+								%li 
+									= image_tag 'placeholder_noImage_bw.png', style: 'width: 50px; float: left; margin-right: 10px; margin-top: 4px;'
+									= volunteer.name
+									is bringing
+									= volunteer.quantity_given
+									= item.name
+									%br
+									%span{style: 'font-size: 10px;'}
+										- from_time = volunteer.created_at
+										= time_ago_in_words(from_time)
+										ago
+								%br			
+						%hr
+					- else
+						%strong
+							= item.name
+						%br
+						We need Volunteers for this
+						%br
+						%hr
+
+
+

@@ -1,5 +1,14 @@
 class EventsController < ApplicationController
   before_filter :load_eventable
+
+  def show
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:id])
+    @item = @event.items 
+    @volunteer = @event.volunteers
+    @volunteers = @event.volunteers.new
+  end
+
   def new
     @user = User.find(params[:user_id])
   	@event = @eventable.events.new
@@ -30,12 +39,6 @@ class EventsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
-    @event = Event.find(params[:id])
-    @item = @event.items  
-    @volunteer = @event.volunteers
   end
 
   def edit
