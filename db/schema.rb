@@ -11,12 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131010171319) do
+ActiveRecord::Schema.define(version: 20131011173723) do
 
   create_table "events", force: true do |t|
     t.string   "name"
-    t.integer  "time"
-    t.string   "date"
     t.integer  "eventable_id"
     t.string   "eventable_type"
     t.datetime "created_at"
@@ -25,6 +23,7 @@ ActiveRecord::Schema.define(version: 20131010171319) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.datetime "date_time"
   end
 
   add_index "events", ["eventable_id", "eventable_type"], name: "index_events_on_eventable_id_and_eventable_type"
