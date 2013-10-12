@@ -1,5 +1,6 @@
 class Volunteer < ActiveRecord::Base
 	belongs_to :volunteerable, polymorphic: true
+  has_attached_file :profile_pic
   def item_quantity_have
   	a = self.volunteerable
   	a.quantity_have

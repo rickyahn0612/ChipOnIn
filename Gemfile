@@ -12,6 +12,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'haml-rails'
 gem 'devise'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'remotipart', '~> 1.2'
 group :doc do
   gem 'sdoc', require: false
 end

@@ -1,3 +1,3 @@
 $(".new_volunteer").hide()
 $('.created-volunteers').html('<%= j render("volunteer") %>').hide().fadeIn()
-$('.created-items').html('<%= j render("items/item") %>').hide().fadeIn()
+$('.created-items').load('<%= j render("items/item") %>');

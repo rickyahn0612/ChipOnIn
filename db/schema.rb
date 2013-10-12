@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131011173723) do
+ActiveRecord::Schema.define(version: 20131012004231) do
 
   create_table "events", force: true do |t|
     t.string   "name"
@@ -72,6 +72,10 @@ ActiveRecord::Schema.define(version: 20131011173723) do
     t.string   "volunteerable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "profile_pic_file_name"
+    t.string   "profile_pic_content_type"
+    t.integer  "profile_pic_file_size"
+    t.datetime "profile_pic_updated_at"
   end
 
   add_index "volunteers", ["volunteerable_type", "volunteerable_id"], name: "index_volunteers_on_volunteerable_type_and_volunteerable_id"

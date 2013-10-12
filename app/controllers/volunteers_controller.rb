@@ -10,7 +10,7 @@ class VolunteersController < ApplicationController
   	@user = User.find(params[:user_id])
   	@event = Event.find(params[:event_id])
   	@item = Item.find(params[:item_id])
-    @items = @event.items.order("created_at desc")
+    @items = @event.items(:created_at).order("created_at desc")
     @volunteer = @item.volunteers.create!(volunteer_params)
     if @volunteer.save
       respond_to do |format|
@@ -33,7 +33,7 @@ class VolunteersController < ApplicationController
   end
 private
   def volunteer_params
-    params.require(:volunteer).permit(:name, :email, :phone, :quantity_given)
+    params.require(:volunteer).permit(:name, :email, :phone, :quantity_given, :profile_pic)
   end
   def load_volunteerable
     resource, id = request.path.split('/')[1,2]
