@@ -21,4 +21,4 @@
 				- else
 					%td= link_to 'Volunteer', new_user_event_item_volunteer_path(@eventable, @event, item), class: 'btn-small btn-info add-items create-volunteer', remote: true
 			%tr
-				%td.item-create-form{style: 'border-top: none;'}
+				%td{id:"volunteer-#{item.id}", style: 'border-top: none;'}
