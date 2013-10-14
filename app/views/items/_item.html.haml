@@ -1,7 +1,8 @@
 %br
 #table
 	- @items.each do |item|
-		.first_row{style: 'text-align: left; width: 10%; float: left; margin-right: 15%; font-weight: bold;'}
+		%br
+		.first_row{style: 'text-align: left; width: 10%; float: left; margin-right: 20%; font-weight: bold;'}
 			= item.name
 		.second_row{style: 'text-align: center; width: 10%; float: left; margin-right: 15%;'}
 			= item.quantity_have.to_i
@@ -9,18 +10,19 @@
 			= item.quantity_needed.to_i
 		.fourth_row{style: 'text-align: center; width: 10%; float: left;'}
 			= link_to 'Volunteer', new_user_event_item_volunteer_path(@eventable, @event, item), class: 'btn-small btn-info add-items create-volunteer', remote: true
-		%br
-		%br
-		.div{id:"volunteer-#{item.id}"}
+		.div{id:"volunteer-#{item.id}", style: 'margin-top: 5px;'}
 		- item.volunteers.each do |volunteers|
-			%ul{style: 'margin-left: 10px;'}
+			%ul{style: 'margin-left: 10px; margin-bottom: -20px;'}
+				%br
+				%br
 				%li{style: 'line-height: 1px; font-style:italic'}
 					= volunteers.name
 					is bringing 
 					= volunteers.quantity_given.to_i
 					= item.name
-					%hr
 		%br
+		%br
+		.line{style: 'border-top: solid #cfcfcf 1px;'}
 
 
 
