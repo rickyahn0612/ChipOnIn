@@ -1,24 +1,57 @@
 %br
-%h4 Items
-%table.table{style: 'margin: 0;'}
-	%thead
-		%th Item Name
-		%th Quantity Given
-		%th Quantity Needed
-	%tbody.items-container
-		- @items.each do |item|
-			%tr
-				%td
-					%strong
-						= item.name
-				%td= item.quantity_have.to_i
-				%td= item.quantity_needed.to_i
-				- if current_user
-					%td= link_to 'edit', edit_user_event_item_path(@eventable, @event, item), class: 'btn-small btn-warning add-items'
-					%td= link_to 'delete', user_event_item_path(@eventable, @event, item), class: 'btn-small btn-danger add-items', method: :delete
-				- if item.quantity_needed.to_i == item.quantity_have.to_i
-					%td{style: 'color: green; font-weight: bold;'} Complete!
-				- else
-					%td= link_to 'Volunteer', new_user_event_item_volunteer_path(@eventable, @event, item), class: 'btn-small btn-info add-items create-volunteer', remote: true
-			%tr
-				%td{id:"volunteer-#{item.id}", style: 'border-top: none;'}
+#table
+	- @items.each do |item|
+		.first_row{style: 'text-align: left; width: 10%; float: left; margin-right: 15%; font-weight: bold;'}
+			= item.name
+		.second_row{style: 'text-align: center; width: 10%; float: left; margin-right: 15%;'}
+			= item.quantity_have.to_i
+		.third_row{style: 'text-align: center; width: 10%; float: left; margin-right: 15%;'}
+			= item.quantity_needed.to_i
+		.fourth_row{style: 'text-align: center; width: 10%; float: left;'}
+			= link_to 'Volunteer', new_user_event_item_volunteer_path(@eventable, @event, item), class: 'btn-small btn-info add-items create-volunteer', remote: true
+		%br
+		%br
+		.div{id:"volunteer-#{item.id}"}
+		- item.volunteers.each do |volunteers|
+			%ul{style: 'margin-left: 10px;'}
+				%li{style: 'line-height: 1px; font-style:italic'}
+					= volunteers.name
+					is bringing 
+					= volunteers.quantity_given.to_i
+					= item.name
+					%hr
+		%br
+
+
+
+
+
+/ %table.table{style: 'margin: 0;'}
+/ 	%thead
+/ 		%th Item Name
+/ 		%th Quantity Given
+/ 		%th Quantity Needed
+/ 	%tbody.items-container
+/ 		- @items.each do |item|
+/ 			%tr
+/ 				%td
+/ 					%strong
+/ 						= item.name
+/ 				%td= item.quantity_have.to_i
+/ 				%td= item.quantity_needed.to_i
+/ 				- if current_user
+/ 					%td= link_to 'edit', edit_user_event_item_path(@eventable, @event, item), class: 'btn-small btn-warning add-items'
+/ 					%td= link_to 'delete', user_event_item_path(@eventable, @event, item), class: 'btn-small btn-danger add-items', method: :delete
+/ 				- if item.quantity_needed.to_i == item.quantity_have.to_i
+/ 					%td{style: 'color: green; font-weight: bold;'} Complete!
+/ 				- else
+/ 					%td= link_to 'Volunteer', new_user_event_item_volunteer_path(@eventable, @event, item), class: 'btn-small btn-info add-items create-volunteer', remote: true
+/ 			%tr
+/ 				%td{style: 'border-top: none;'}
+/ 					.div{id:"volunteer-#{item.id}"}
+/ 					- item.volunteers.each do |volunteers|
+
+/ 						= volunteers.name
+/ 						is giving
+/ 						= volunteers.quantity_given
+/ 						%br

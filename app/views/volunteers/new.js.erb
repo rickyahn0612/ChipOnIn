@@ -1,4 +1,3 @@
-$('.create-volunteer').bind('ajax:success', function(){
-  $("td#volunteer-<%= @items.id %>").html('<%= j render("volunteers/form") %>').hide().fadeIn("500")
-});
+$("#volunteer-<%= @items.id %>").html('<%= j render("volunteers/form") %>').hide().fadeIn("500")
+
 

@@ -3,7 +3,9 @@
 	= f.text_field :name	
 	= f.label :quantity_given
 	= f.text_field :quantity_given
-	= f.label :profile_pic
-	= f.file_field :profile_pic
-	= f.submit 'Volunteer', remote: true
+	/ = f.label :profile_pic
+	/ = f.file_field :profile_pic
+	= f.submit 'Volunteer', remote: true, class: 'btn-success btn-small'
 = link_to 'cancel', '#' ,class: 'cancel-volunteer'
+%br
+%br
