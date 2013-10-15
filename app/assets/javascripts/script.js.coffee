@@ -8,7 +8,9 @@ $ ->
 
 	$(window).scroll ->
 	  top = (if ($(window).scrollTop() > 0) then $(window).scrollTop() else 1)
-	  $(".banner-content").stop(true, true).fadeTo 0, 60 / top
+	  $("#banner-content").stop(true, true).fadeTo 0, 60 / top
+	  $("video").stop(true, true).fadeTo 0, 150 / top
+
 	# minimum video width allowed
 	# original video dimensions
 	# runs after DOM has loaded
@@ -42,5 +44,3 @@ $ ->
 	  jQuery(window).resize ->
 	    resizeToCover()
 	  jQuery(window).trigger "resize"
-
-
