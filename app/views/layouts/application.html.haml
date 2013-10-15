@@ -17,36 +17,23 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
 
-
+    %link{href: "http://fonts.googleapis.com/css?family=Julius+Sans+One|Open+Sans+Condensed:300", rel: "stylesheet", type: "text/css"}
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand(href="#") EventerApp
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
-
-    .container
-
-      .row
-        .span9
-          = bootstrap_flash
-          = yield
-        .span3
-          .well.sidebar-nav
-            %h3 Sidebar
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
-    
-      %footer
-        %p &copy; Company 2013
+    #navbar-container
+      .container
+        .row
+          .span4
+            = link_to "EventApp", root_path, class: 'logo'
+          .span7  
+            %ul#nav-bar
+              %li
+                Home
+              %li
+                About
+              %li
+                Portfolio
+              %li
+                About
+              %li
+                Portfolio
+    = yield 
