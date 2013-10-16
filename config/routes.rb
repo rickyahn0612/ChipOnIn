@@ -3,6 +3,7 @@ EventerApp::Application.routes.draw do
   get "volunteers/index"
   get "volunteers/edit"
   get "volunteers/show"
+  get "static_pages/learn"
   devise_for :users 
   resources :users do 
     resources :events do 

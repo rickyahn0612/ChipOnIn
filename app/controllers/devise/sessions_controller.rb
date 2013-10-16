@@ -15,7 +15,7 @@ class Devise::SessionsController < DeviseController
     self.resource = warden.authenticate!(auth_options)
     set_flash_message(:notice, :signed_in) if is_navigational_format?
     sign_in(resource_name, resource)
-    redirect_to @user
+    redirect_to :back
   end
 
   # DELETE /resource/sign_out
