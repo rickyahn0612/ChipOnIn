@@ -1,0 +1,28 @@
+#signup-image
+#signup-image-tint
+.container
+  %br
+  %br
+  .row
+    .span5{style: 'margin-right: 120px;'}
+      = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:multipart => true}) do |f| 
+        = devise_error_messages! 
+        = f.label :name
+        = f.text_field :name, :autofocus => true 
+        = f.label :email
+        = f.email_field :email, :autofocus =>  true
+        = f.label :profile_pic
+        = f.file_field :profile_pic
+        = f.label :password 
+        = f.password_field :password 
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
+        = f.submit "Sign Up", style: 'width: 100px !important; color: white; background: #2AC4EA; padding 0; border: 0;'
+    .span5
+      %h3 Sign Up Now To Create an Event
+      %p Lorem ipsum dolor sitta ipsum dolor sitta.  Lorem ipsum dolor sitta ipsum dolor sitta.  Lorem ipsum dolor sitta ipsum dolor sitta.  Lorem ipsum dolor sitta ipsum dolor sitta.  Lorem ipsum dolor sitta ipsum dolor sitta.  Lorem ipsum dolor sitta ipsum dolor sitta.  Lorem ipsum dolor sitta ipsum dolor sitta.  Lorem ipsum dolor sitta ipsum dolor sitta.
+      %br
+      %br
+      %h3 Learn More About Us
+      %p Lorem ipsum dolor sitta ipsum dolor sitta.  Lorem ipsum dolor sitta ipsum dolor sitta.  Lorem ipsum dolor sitta ipsum dolor sitta.  Lorem ipsum dolor sitta ipsum dolor sitta.  Lorem ipsum dolor sitta ipsum dolor sitta.  Lorem ipsum dolor sitta ipsum dolor sitta.  Lorem ipsum dolor sitta ipsum dolor sitta.  Lorem ipsum dolor sitta ipsum dolor sitta.
+

@@ -1,13 +1,16 @@
 #video-viewport{style: 'background: black;'}
-  = video_tag "grainvideo.mov", :size => "1280x720", :controls => true, id: 'video', autoplay: "", controls: ""
+  = video_tag "grainvideo.mov", :size => "1280x720", :controls => true, id: 'video', autoplay: "", controls: "", loop: true
   .container
     #banner-content
       %h2{style: "font-size: 30px;"} Plan Your Next Event
       %p{style: 'font-size: 15px; line-height:22px;'} Lorem ipsum dolor sitta upsum dolor.  Lorem ipsum dolor sitta upsum dolor.  Lorem ipsum dolor sitta upsum dolor.
       .transparent-button
-        View More Info
+        = link_to 'Sign Up', new_user_registration_path, style: 'color: white;'
       .solid-button
-        View More Info
+        - if current_user.present?
+          = link_to 'Create Event', new_user_event_path(current_user), style: 'color: white;'
+        - else
+          = link_to 'Create Event', new_user_registration_path, style: 'color: white;'
 #body-content
   %br
   .container
@@ -22,7 +25,7 @@
           Lorem ipsum dolor sitta.  Ipsum dolor sitta.  Lorem ipsum dolor sitta.  Ipsum dolor sitta.
       .span3
         .cirlce
-          .span.icon-star{style: 'position: relative; right: 20px; top: 8px;'}
+          .span.icon-heart{style: 'position: relative; right: 20px; top: 8px;'}
         .span{style: 'float: left; font-family:"Open Sans Condensed", sans-serif; font-size: 20px; margin-top: 22px; position: relative; right: 20px;'}
           %strong
             Lorem Ipsum dolor sitta
@@ -30,7 +33,7 @@
           Lorem ipsum dolor sitta.  Ipsum dolor sitta.  Lorem ipsum dolor sitta.  Ipsum dolor sitta.
       .span3
         .cirlce
-          .span.icon-star{style: 'position: relative; right: 20px; top: 8px;'}
+          .span.icon-off{style: 'position: relative; right: 20px; top: 8px;'}
         .span{style: 'float: left; font-family:"Open Sans Condensed", sans-serif; font-size: 20px; margin-top: 22px; position: relative; right: 20px;'}
           %strong
             Lorem Ipsum dolor sitta
@@ -38,57 +41,33 @@
           Lorem ipsum dolor sitta.  Ipsum dolor sitta.  Lorem ipsum dolor sitta.  Ipsum dolor sitta.
       .span3
         .cirlce
-          .span.icon-star{style: 'position: relative; right: 20px; top: 8px;'}
+          .span.icon-comment{style: 'position: relative; right: 20px; top: 8px;'}
         .span{style: 'float: left; font-family:"Open Sans Condensed", sans-serif; font-size: 20px; margin-top: 22px; position: relative; right: 20px;'}
           %strong
             Lorem Ipsum dolor sitta
         .span{style: 'text-align: left; margin-top: 10px; font-family:"Open Sans Condensed"; position: relative; right: 25px;'}
           Lorem ipsum dolor sitta.  Ipsum dolor sitta.  Lorem ipsum dolor sitta.  Ipsum dolor sitta.
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
+  #mid-content
+    %h2 Let Us Help You Plan Your Next Amazing Event
+
+
+  %br
+  .container
+    .row
+      .span5{style: 'margin-right: 170px;'}
+        .span{style: 'float: left; font-family:"Open Sans Condensed", sans-serif; font-size: 20px; margin-top: 22px; position: relative; right: 20px; text-align: left;'}
+          %strong
+            Lorem Ipsum dolor sitta ipsum dolor sitta?
+          %hr
+          %p{style: 'color: #888888; font-size: 15px;'} Lorem ipsum dolor sitta.  Ipsum dolor sitta lorem ipsum dolor sitta.  Lorem ipsum dolor sitta.  Ipsum dolor sitta lorem ipsum dolor sitta.  Lorem ipsum dolor sitta.  Ipsum dolor sitta lorem ipsum dolor sitta.  Lorem ipsum dolor sitta.  Ipsum dolor sitta lorem ipsum dolor sitta.  Lorem ipsum dolor sitta.  Ipsum dolor sitta lorem ipsum dolor sitta.
+        
+          = link_to "Learn More", '#', class: 'btn btn-success'
+      .span5{style: 'margin-top: 20px;'}
+        = image_tag 'american.jpg'
+
+  #bottom-footer
+    .container
+      .row
+        .span4
+          Copyright 2013 Yo Mamma
+

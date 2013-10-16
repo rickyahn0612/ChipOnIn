@@ -1,0 +1,9 @@
+#sign-in
+	.container{style: 'margin-top: 80px;'}
+		%h3.sign-in-text Sign In
+		= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| 
+			= f.email_field :email, :autofocus => true, style: 'width: 400px !important; position: relative; top: 400px; margin-right: 30px;', placeholder: 'Email' 
+			= f.password_field :password, style: 'width: 400px !important; position: relative; top: 400px;', placeholder: 'Password' 
+
+			= f.submit "Sign in", style: 'width: 140px !important; border: 0; padding: 0; background: #2AC4EA; color: white; position: relative; top: 395px; right: -20px;'
+			%p{style: 'color: white; font-size: 18px; position: relative; top: 400px;'} Need to sign up? / Forgot your password?

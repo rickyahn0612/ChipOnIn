@@ -24,7 +24,7 @@
         .row
           .span4
             = link_to "EventApp", root_path, class: 'logo'
-          .span7
+          .span7.pull-right
             %ul#nav-bar
               %li
                 Home
@@ -32,4 +32,13 @@
                 About
               %li
                 Portfolio
+              %li
+                Sign In
+              %li
+                Sign Up
     = yield 
+    #bottom-footer
+      .container
+        .row
+          .span4
+            Copyright 2013 Yo Mamma
