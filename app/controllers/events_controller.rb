@@ -53,7 +53,7 @@ class EventsController < ApplicationController
   end
 private
   def event_params
-    params.require(:event).permit(:name, :date_time, :photo, :organization_name, :venue, :description)
+    params.require(:event).permit(:name, :date_time, :photo, :organization_name, :venue, :description, :address, :latitude, :longitude)
   end
   def load_eventable
     resource, id = request.path.split('/')[1,2]

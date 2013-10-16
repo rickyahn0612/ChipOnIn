@@ -4,9 +4,9 @@
 		%br
 		.first_row{style: 'text-align: left; width: 20%; float: left; margin-right: 20%; font-weight: bold;'}
 			= item.name
-		.second_row{style: 'text-align: center; width: 10%; float: left; margin-right: 15%;'}
+		.second_row{style: 'text-align: center; width: 10%; float: left; margin-right: 5%;'}
 			= item.quantity_have.to_i
-		.third_row{style: 'text-align: center; width: 10%; float: left; margin-right: 15%;'}
+		.third_row{style: 'text-align: center; width: 10%; float: left; margin-right: 5%;'}
 			= item.quantity_needed.to_i
 		.fourth_row{style: 'text-align: center; width: 10%; float: left;'}
 			= link_to 'Volunteer', new_user_event_item_volunteer_path(@eventable, @event, item), class: 'btn-small btn-info add-items create-volunteer', remote: true

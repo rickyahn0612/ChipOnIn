@@ -12,11 +12,19 @@
 			- else
 				%h3 Upload an Image for your Event
 				= link_to 'upload image'
-	.span3{style: 'position: relative; top: -20px;'}
-		%h3 Event Info
-		= @event.date_time
-		%br
-		= @event.organization
-		= @event.venue
-		%br
-		= @event.description
+	.span3{style: 'position: relative; top: 0px;'}
+		%ul.thumbnails
+			%li.span4
+				.thumbnail
+					= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@event.latitude}%2C#{@event.longitude}"
+					%br
+					%strong
+						= @event.venue
+					%br
+					= @event.address
+					%br
+					%br
+					= @event.date_time
+				%br
+				= @event.description
+

@@ -88,6 +88,7 @@ GEM
     erubis (2.7.0)
     execjs (2.0.2)
     fssm (0.2.10)
+    geocoder (1.1.6)
     gon (4.1.1)
       actionpack (>= 2.3.0)
       json
@@ -197,6 +198,7 @@ DEPENDENCIES
   compass-rails (~> 2.0.alpha.0)
   debugger
   devise
+  geocoder
   gon
   haml-rails
   jbuilder (~> 1.2)

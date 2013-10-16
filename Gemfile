@@ -13,6 +13,7 @@ gem 'haml-rails'
 gem 'devise'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'remotipart', '~> 1.2'
+gem 'geocoder'
 group :doc do
   gem 'sdoc', require: false
 end
