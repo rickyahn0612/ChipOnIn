@@ -1,13 +1,30 @@
-.event-creator-box
-	.row.create-box
-		.span4{style: 'margin-right: 120px;'}
-			= form_for [@user, @event], :html => {:multipart => true} do |f|
-				%h3 Create Your Event!
-				= f.label :name
-				= f.text_field :name
-				= f.label :date_time
-				= f.datetime_select :date_time
-				%br
-				= f.submit 'Create Event', class: 'btn-large btn-primary create-event'
-		.span2{style: 'width: 600px; margin: 0 auto;'}
-			= image_tag 'BL_JungleFunPartySet5.jpg'
+.container{style: 'margin-top: 80px;'}
+	.event-creator-box
+		.row.create-box{style: 'margin-left: 50px;'}
+			.span6
+				= form_for [@user, @event], :html => {:multipart => true} do |f|
+					%h3 Create Your Event!
+					= f.label 'Give your event an awsome name'
+					= f.text_field :name, placeholder: 'e.g. Super Awsome Party!'
+					= f.label 'Organization Name'
+					= f.text_field :organization
+					= f.label 'Venue Name'
+					= f.text_field :venue
+					= f.label "Date of Event"
+					= f.text_field :date_time
+					= f.label 'Upload a Photo of your Event'
+					= image_tag 'default_upload_logo.gif', style: 'float: left;'
+					= f.file_field :photo, style: 'width: 180px !important; margin-left: 10px;'
+					.span{style: 'font-size: 12px; position: relative; right: 20px;'}
+						Your image must be JPG, GIF, or PNG format and not exceed 2MB. It will be resized to make its width 450px.
+					%br
+					%br
+					%br
+					%br
+					%br
+					= f.label :description
+					= f.text_area :description, style: 'width: 570px; height: 200px;'
+					%br
+					%br
+					= f.submit 'Create Event', class: 'btn-large btn-primary create-event'
+					By Clicking on this button you are accepting our Terms of Services

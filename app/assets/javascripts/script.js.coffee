@@ -3,7 +3,6 @@ $ ->
 		e.preventDefault()
 		alert 'hey'
 	video = document.getElementById("video") # assuming "video" is your videos' id
-	video.removeAttribute "controls"
 	$("video").prop('muted', true)
 
 	$(window).scroll ->
@@ -44,3 +43,5 @@ $ ->
 	  jQuery(window).resize ->
 	    resizeToCover()
 	  jQuery(window).trigger "resize"
+
+  $('#event_date_time').datepicker()

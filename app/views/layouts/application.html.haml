@@ -16,26 +16,30 @@
     = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
-
+    %script{src: "//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"}
     %link{href: "http://fonts.googleapis.com/css?family=Julius+Sans+One|Open+Sans+Condensed:300", rel: "stylesheet", type: "text/css"}
   %body
-    #navbar-container
+    #navbar-container{style: 'font-size: 17px;'}
       .container
         .row
           .span4
             = link_to "EventApp", root_path, class: 'logo'
           .span7.pull-right
-            %ul#nav-bar
+            %ul#nav-bar.pull-right
               %li
-                Home
+                = link_to 'Home', root_path
               %li
-                About
+                = link_to 'Learn more', "#"
               %li
-                Portfolio
-              %li
-                Sign In
-              %li
-                Sign Up
+                - if current_user
+                  = link_to 'My Events', current_user
+                - else
+                  = link_to 'Join', new_user_registration_path
+              - if current_user
+                %li= link_to "Sign Out", destroy_user_session_path, :method => :delete
+              - else
+                %li
+                  = link_to 'Login', new_user_session_path
     = yield 
     #bottom-footer
       .container

@@ -2,7 +2,7 @@
 #table
 	- @items.each do |item|
 		%br
-		.first_row{style: 'text-align: left; width: 10%; float: left; margin-right: 20%; font-weight: bold;'}
+		.first_row{style: 'text-align: left; width: 20%; float: left; margin-right: 20%; font-weight: bold;'}
 			= item.name
 		.second_row{style: 'text-align: center; width: 10%; float: left; margin-right: 15%;'}
 			= item.quantity_have.to_i
