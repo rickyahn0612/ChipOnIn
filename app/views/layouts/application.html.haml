@@ -22,10 +22,10 @@
     #navbar-container{style: 'font-size: 17px;'}
       .container
         .row
-          .span4
+          .span5
             = link_to "EventApp", root_path, class: 'logo'
           .span7.pull-right
-            %ul#nav-bar.pull-right
+            %ul#nav-bar.pull-right{style: 'position: relative;'}
               %li
                 = link_to 'Home', root_path
               %li
@@ -39,10 +39,23 @@
                 %li= link_to "Sign Out", destroy_user_session_path, :method => :delete
               - else
                 %li
-                  = link_to 'Login', new_user_session_path
+                  %span.hover-login
+                    = link_to 'Login', "#", class: 'nav-login-button'
+                    #login-form 
+                      %br
+                      = form_for("user", :url => user_session_path) do |f|
+                        = f.label :email
+                        = f.email_field :email, style: 'width: 385px !important;'
+                        = f.label :password
+                        = f.password_field :password, style: 'width: 385px !important;'
+                        = f.submit "Sign in", class: 'btn-info btn-small'
+                        Not a memeber?  
+                        = link_to 'Sign Up', new_user_registration_path
     = yield 
     #bottom-footer
       .container
         .row
           .span4
             Copyright 2013 Yo Mamma
+
+

@@ -19,6 +19,7 @@
 
 #nav-bar{
 	padding-left: 80px;
+
 }
 
 #nav-bar li a{
@@ -134,4 +135,13 @@
 	background: #1F1F1F;
 	height: 50px;
 	color: #4e5051;
+}
+
+#login-form{
+	background: white;
+	width: 400px;
+	position: absolute;
+	right: -10px;
+	display: none;
+	padding: 20px;
 }
