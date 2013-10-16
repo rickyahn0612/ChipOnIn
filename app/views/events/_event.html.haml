@@ -5,26 +5,7 @@
 		- else
 			= link_to 'Edit', edit_user_event_path(@event.eventable, @event), class: 'btn-small btn-warning'
 			= link_to 'Delete', user_event_path(@event.eventable, @event), class: 'btn-small btn-danger', method: :delete
-	.span7{style: 'margin: 0;'}
-		.event-photo{style: 'width: 100%;'}
-			- if @event.photo.file?
-				= image_tag @event.photo, style: 'width: 100%;'
-			- else
-				%h3 Upload an Image for your Event
-				= link_to 'upload image'
+
 	.span3{style: 'position: relative; top: 0px;'}
-		%ul.thumbnails
-			%li.span4
-				.thumbnail
-					= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@event.latitude}%2C#{@event.longitude}"
-					%br
-					%strong
-						= @event.venue
-					%br
-					= @event.address
-					%br
-					%br
-					= @event.date_time
-				%br
-				= @event.description
+
 

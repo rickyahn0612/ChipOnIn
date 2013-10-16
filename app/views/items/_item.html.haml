@@ -1,28 +1,31 @@
-%br
 #table
 	- @items.each do |item|
 		%br
+		%br
+		.line{style: 'border-top: solid #cfcfcf 1px;'}
+		%br
 		.first_row{style: 'text-align: left; width: 20%; float: left; margin-right: 20%; font-weight: bold;'}
 			= item.name
-		.second_row{style: 'text-align: center; width: 10%; float: left; margin-right: 5%;'}
+		.second_row{style: 'text-align: center; width: 10%; float: left; margin-right: 15%;'}
 			= item.quantity_have.to_i
-		.third_row{style: 'text-align: center; width: 10%; float: left; margin-right: 5%;'}
+		.third_row{style: 'text-align: center; width: 10%; float: left; margin-right: 15%;'}
 			= item.quantity_needed.to_i
 		.fourth_row{style: 'text-align: center; width: 10%; float: left;'}
 			= link_to 'Volunteer', new_user_event_item_volunteer_path(@eventable, @event, item), class: 'btn-small btn-info add-items create-volunteer', remote: true
-		.div{id:"volunteer-#{item.id}", style: 'margin-top: 5px;'}
+
+		.div{id:"volunteer-#{item.id}", style: 'margin-top: 5px; margin-left: 20px;'}
 		- item.volunteers.each do |volunteers|
 			%ul{style: 'margin-left: 10px; margin-bottom: -20px;'}
 				%br
 				%br
-				%li{style: 'line-height: 1px; font-style:italic'}
+				%li{style: 'line-height: 1px; font-style:italic; letter-spacing: 2px;'}
 					= volunteers.name
 					is bringing 
 					= volunteers.quantity_given.to_i
 					= item.name
-		%br
-		%br
-		.line{style: 'border-top: solid #cfcfcf 1px;'}
+			%br
+			%br
+		
 
 
 

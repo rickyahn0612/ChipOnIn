@@ -4,14 +4,40 @@
 %br
 .container
 	.row
-		.span8
+		.span7
+			%h3
+				= @event.name 
+				(
+				= @event.date_time.strftime("%A, %B %d %Y")
+				)
+			.event-photo{style: 'width: 100%;'}
+				- if @event.photo.file?
+					= image_tag @event.photo, style: 'width: 100%;'
+				- else
+					%h3 Upload an Image for your Event
+					= link_to 'upload image'
 			.created-event
-				= render 'event'
 				- if current_user
 					= link_to "Add Items", new_user_event_item_path(@eventable, @event, @items), class: 'btn-small btn-success add-items', remote: true
-			.created-items
-				= render 'items/item'
+				.created-items
+					= render 'items/item'
+		%br
+		%br
+		%br
 		.span4
-			.created-volunteers
-				/ = render 'volunteers/volunteer'
+			%ul.thumbnails
+				%li.span4
+					.thumbnail
+						= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@event.latitude}%2C#{@event.longitude}"
+						%br
+						%strong
+							= @event.venue
+						%br
+						= @event.address
+						%br
+						%br
+						= @event.date_time.strftime("%A, %B %d %Y")
+					%br
+					= @event.description
+
 .add-item-form-container

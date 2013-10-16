@@ -2,7 +2,7 @@ $ ->
 	$('.cancel-volunteer').on 'click', (e) ->
 		e.preventDefault()
 		alert 'hey'
-		
+
 	video = document.getElementById("video") # assuming "video" is your videos' id
 	$("video").prop('muted', true)
 
@@ -57,8 +57,6 @@ $ ->
 	# OSName = "Unknown OS"
 	# OSName = "Windows"  unless navigator.appVersion.indexOf("Win") is -1
 	# OSName = "MacOS"  unless navigator.appVersion.indexOf("Mac") is -1
-	# OSName = "UNIX"  unless navigator.appVersion.indexOf("X11") is -1
-	# OSName = "Linux"  unless navigator.appVersion.indexOf("Linux") is -1
 	# if OSName == "MacOS"
 	# 	$('.pc').remove()
 	# else
