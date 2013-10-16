@@ -1,4 +1,4 @@
-.span8{style: 'margin: 0;'}
+.span10{style: 'margin: 0;'}
 	%h3
 		= @event.name
 		- if current_user
@@ -12,6 +12,11 @@
 			- else
 				%h3 Upload an Image for your Event
 				= link_to 'upload image'
+	.span3{style: 'position: relative; top: -20px;'}
+		%h3 Event Info
+		= @event.date_time
 		%br
-	.span1
-		%h3 Location:
+		= @event.organization
+		= @event.venue
+		%br
+		= @event.description

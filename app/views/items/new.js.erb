@@ -1,3 +1,8 @@
 $('.add-item-form-container').html('<%= j render("items/new") %>').hide().fadeIn();
 var $overlay = $('<div class="overlay">');
 $overlay.appendTo("body").hide().fadeIn();
+$overlay.on('click', function(e){
+	$overlay.remove();
+	$('.add-item-form-container').fadeOut();
+
+});

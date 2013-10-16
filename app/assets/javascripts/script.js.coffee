@@ -2,6 +2,7 @@ $ ->
 	$('.cancel-volunteer').on 'click', (e) ->
 		e.preventDefault()
 		alert 'hey'
+		
 	video = document.getElementById("video") # assuming "video" is your videos' id
 	$("video").prop('muted', true)
 
@@ -44,12 +45,12 @@ $ ->
 	    resizeToCover()
 	  jQuery(window).trigger "resize"
 
-  $('#event_date_time').datepicker()
+  # $('#event_date_time').datepicker()
 
 	$(".hover-login").hover (->
 	  $("#login-form").stop(true, true).delay(200).slideDown(500)
 	), ->
-	  $("#login-form").slideUp()
+	  $("#login-form").slideUp(500)
 
 
 
@@ -61,4 +62,16 @@ $ ->
 	# if OSName == "MacOS"
 	# 	$('.pc').remove()
 	# else
-	# 	alert 'boo'
+	# 	$('.mac').remove()
+
+	# isAndroid = /android/i.test(navigator.userAgent.toLowerCase())
+	# if isAndroid
+	# 	alert 'Android'
+	# else
+	# 	alert 'not an Android'
+
+	# isiDevice = /ipad|iphone|ipod/i.test(navigator.userAgent.toLowerCase())
+	# if isiDevice
+	#   alert "iphon"
+	# else
+	#   alert "not idevice"
